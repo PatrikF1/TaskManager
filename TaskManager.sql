@@ -13,7 +13,7 @@ CREATE TABLE zaposlenici (
     prezime           VARCHAR(50) NOT NULL,
     email             VARCHAR(100) NOT NULL,
     specijalizacija   VARCHAR(100),
-    FOREIGN KEY (id_voditelj) REFERENCES zaposlenici(id_zaposlenik)ON DELETE CASCADE
+    FOREIGN KEY (id_voditelj) REFERENCES zaposlenici(id_zaposlenik) ON DELETE CASCADE
 );
 
 
@@ -60,40 +60,48 @@ INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specij
 INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (17, 1, 'Max','Šariæ', 'max.sar@firma.com', 'DevOps inženjer');
 INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (18, 1, 'Alen','Asenoviæ', 'asen.alen@firma.com', 'DevOps inženjer');
 INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (19, 17, 'Sandra','Jelenoviæ', 'jelensandra@firma.com', 'Cloud inženjer');
+INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (20, 18, 'Nikola', 'Dominkoviæ', 'nikola.dom@firma.com', 'Data Scientist');
+INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (21, 1, 'Kristina', 'Rajiæ', 'kristina.rajic@firma.com', 'Project Manager');
+INSERT INTO zaposlenici (id_zaposlenik, id_voditelj, ime, prezime, email, specijalizacija) VALUES (22, 5, 'Petra', 'Mariæ', 'petra.maric@firma.com', 'Frontend razvoj');
+
 
 INSERT INTO statusi (id_status, radnja) VALUES (1, 'Upisano');
 INSERT INTO statusi (id_status, radnja) VALUES (2, 'U tijeku');
 INSERT INTO statusi (id_status, radnja) VALUES (3, 'Završeno');
 INSERT INTO statusi (id_status, radnja) VALUES (4, 'Prihvaæeno');
-INSERT INTO statusi (id_status, radnja) VALUES (5, 'Otkažano');
+INSERT INTO statusi (id_status, radnja) VALUES (5, 'Otkazano');
 
 
-
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (101, 'Izrada login forme', 'PL/SQL', 2, 4);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (102, 'Testiranje baze podataka', 'SQL', 1, 3);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (101, 'Izrada login forme', 'PL/SQL', 2, 6);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (102, 'Testiranje baze podataka', 'SQL', 1, 7);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (103, 'API za upravljanje korisnicima', 'Java', 2, 5);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (104, 'Dizajn korisnièkog suèelja', 'HTML/CSS', 3, 4);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (105, 'Pisanje unit testova', 'Java', 1, 8);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (106, 'Optimizacija SQL upita', 'SQL', 2, 13);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (107, 'Integracija platnog servisa', 'Java', 2, 6);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (105, 'Pisanje unit testova', 'Java', 1, 14);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (106, 'Optimizacija SQL upita', 'SQL', 2, 8);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (107, 'Integracija platnog servisa', 'Java', 2, 5);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (108, 'Refaktoriranje koda aplikacije', 'PL/SQL', 3, 9);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (109, 'Izrada tehnièke dokumentacije', 'Markdown', 1, 18);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (110, 'Dizajn ikona za suèelje', 'HTML/CSS', 2, 12);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (111, 'Priprema migracijskog plana', 'SQL', 3, 7);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (112, 'Razvoj notifikacijskog sustava', 'Java', 2, 10);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (113, 'Analiza sigurnosnih propusta', 'PL/SQL', 1, 14);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (109, 'Izrada tehnièke dokumentacije', 'Markdown', 1, 12);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (110, 'Dizajn ikona za suèelje', 'HTML/CSS', 2, 16);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (111, 'Priprema migracijskog plana', 'SQL', 3, 6);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (112, 'Razvoj notifikacijskog sustava', 'Java', 2, 5);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (113, 'Analiza sigurnosnih propusta', 'PL/SQL', 1, 10);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (114, 'Uvoðenje CI/CD pipeline-a', 'Java', 2, 17);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (115, 'Razvoj mobilne aplikacije', 'Java', 1, 16);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (115, 'Razvoj mobilne aplikacije', 'Java', 1, 5);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (116, 'Implementacija autentikacije dvostrukim faktorom', 'Java', 4, 5);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (117, 'Dizajn nove landing stranice', 'HTML/CSS', 4, 16);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (117, 'Dizajn nove landing stranice', 'HTML/CSS', 4, 4);
 INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (118, 'Migracija podataka na cloud', 'SQL', 5, 19);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (119, 'Pisanje skripti za automatizaciju builda', 'PL/SQL', 5, 17);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (120, 'Razvoj modula za izvještaje', 'Java', 4, 6);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (121, 'Unapreðenje korisnièke podrške', 'Markdown', 4, 18);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (122, 'Prilagodba aplikacije za mobilne ureðaje', 'HTML/CSS', 5, 12);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (123, 'Testiranje performansi baze', 'SQL', 5, 13);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (124, 'Uvoðenje sustava za verzioniranje', 'Java', 4, 10);
-INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (125, 'Osmišljavanje strategije sigurnosnih kopija', 'PL/SQL', 4, 14);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (119, 'Pisanje skripti za automatizaciju builda', 'Python', 5, 17);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (120, 'Razvoj modula za izvještaje', 'SQL', 4, 6);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (121, 'Unapreðenje korisnièke podrške', 'Markdown', 4, 12);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (122, 'Prilagodba aplikacije za mobilne ureðaje', 'HTML/CSS', 5, 16);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (123, 'Testiranje performansi baze', 'SQL', 5, 9);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (124, 'Uvoðenje sustava za verzioniranje', 'Java', 4, 17);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (125, 'Osmišljavanje strategije sigurnosnih kopija', 'PL/SQL', 4, 10);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (126, 'Implementacija analitike', 'Python', 3, 20);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (127, 'Planiranje projekta X', NULL, 2, 21);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (128, 'Prilagodba layouta za RTL jezike', 'HTML/CSS', 2, 22);
+INSERT INTO zadaci (id_zadatak, naziv, programski_jezik, id_status, id_zaposlenik) VALUES (129, 'Generiranje prediktivnih modela', 'Python', 2, 20);
+
 
 
 
@@ -122,4 +130,75 @@ INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1026, 1
 INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1027, 123, 'Testiranje otkazano zbog nadogradnje baze.');
 INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1028, 124, 'Verzioniranje prihvaæeno od strane voditelja.');
 INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1029, 125, 'Strategija sigurnosnih kopija prihvaæena.');
+INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1030, 126, 'Analitika pripremljena za inicijalni deployment.');
+INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1031, 127, 'Projektna dokumentacija na èekanju.');
+INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1032, 128, 'RTL testiranja uspješno prošla.');
+INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1033, 129, 'Predikcijski model daje 87% toènosti.');
+INSERT INTO aktivnosti_po_zadatku (id_apz, id_zadatak, komentar) VALUES (1034, 130, 'Specifikacije revidirane i komentirane.');
+
+
+
+
+
+
+
+
+SELECT *
+FROM zaposlenici;
+
+
+
+-- Top 3 zaposlenika sa specijalizacijom 'SQL Developer' na zadacima u statusu 'U tijeku'
+
+CREATE VIEW slq_devs_u_tijeku AS
+SELECT *
+FROM (SELECT z.ime, z.prezime, z.specijalizacija, st.radnja 
+FROM zaposlenici z
+JOIN zadaci s ON z.id_zaposlenik = s.id_zaposlenik
+JOIN statusi st ON st.id_status = s.id_status
+WHERE z.specijalizacija = 'SQL Developer' AND st.radnja = 'U tijeku')
+WHERE ROWNUM <= 3; 
+
+-- DROP VIEW slq_devs_u_tijeku;
+
+SELECT * FROM slq_devs_u_tijeku;
+
+
+
+
+
+-- aktivnosti po zaposleniku 
+
+CREATE OR REPLACE VIEW v_aktivnosti_po_zaposleniku AS
+SELECT zp.ime, zp.prezime, COUNT(apz.id_apz) AS broj_aktivnosti
+FROM zaposlenici zp
+JOIN zadaci z ON z.id_zaposlenik = zp.id_zaposlenik
+JOIN aktivnosti_po_zadatku apz ON apz.id_zadatak = z.id_zadatak
+GROUP BY zp.ime, zp.prezime;
+
+SELECT * 
+FROM v_aktivnosti_po_zaposleniku;
+
+
+-- prikaz svih komentara po zadacima 
+
+CREATE OR REPLACE VIEW v_komentari_po_zadacima AS
+SELECT zadaci.naziv AS zadatak, COUNT(a.id_apz) AS broj_komentara
+FROM zadaci
+LEFT JOIN aktivnosti_po_zadatku a ON zadaci.id_zadatak = a.id_zadatak
+GROUP BY zadaci.naziv;
+
+SELECT *
+FROM v_komentari_po_zadacima;
+
+
+-- Prikazuje sve zadatke koji su trenutno na èekanju za pregled
+
+SELECT z.id_zadatak, z.naziv, apz.komentar
+FROM zadaci z
+JOIN aktivnosti_po_zadatku apz ON apz.id_zadatak = z.id_zadatak
+WHERE apz.komentar LIKE '%èeka%';
+
+
+
 
