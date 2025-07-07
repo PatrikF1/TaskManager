@@ -300,6 +300,38 @@ FROM zadaci z
 JOIN statusi s ON z.id_status = s.id_status;
 
 
-SELECT * FROM audit_zadaci; -- napravit cemo trigger kada se unese zadatak da se automatski napuni tablica sa podacima, povezali smo je sa id_zadatak.
+SELECT * FROM audit_zadaci; -- napravit cemo trigger kada se unese zadatak da se automatski napuni tablica sa podacima, povezali smo je sa id_zadatak. (samo da naucimo sintaksu)
 
+-- Popis svih zaposlenika sa njihovim voditeljima
 
+SELECT z.ime || ' ' || z.prezime AS zaposlenik,
+    CASE 
+    WHEN v.ime IS NOT NULL 
+    THEN v.ime || ' ' || v.prezime 
+    ELSE 'Nema voditelja'
+    END AS voditelj
+FROM zaposlenici z
+LEFT JOIN zaposlenici v ON z.id_voditelj = v.id_zaposlenik;
+
+-- Broj zadataka po statusu
+
+SELECT st.radnja, COUNT(*) AS broj_zadataka
+FROM zadaci zad
+JOIN statusi st ON zad.id_status = st.id_status
+GROUP BY st.radnja;
+
+-- Zadaci kojima je programski jezik 'Java'
+
+SELECT naziv, id_status, id_zaposlenik
+FROM zadaci
+WHERE programski_jezik = 'Java';
+
+-- Prikaz zadataka koji nemaju nikakvih aktivnosti (komentara)
+
+CREATE OR REPLACE VIEW v_zadaci_bez_aktivnosti AS
+SELECT z.id_zadatak, z.naziv, z.programski_jezik
+FROM zadaci z
+LEFT JOIN aktivnosti_po_zadatku apz ON z.id_zadatak = apz.id_zadatak
+WHERE apz.id_apz IS NULL;
+
+SELECT * FROM v_zadaci_bez_aktivnosti;
